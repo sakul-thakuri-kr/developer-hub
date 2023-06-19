@@ -1,16 +1,20 @@
 ---
 title: Built-in and custom Harness variables reference
 description: List of default (built-in) Harness expressions.
-# sidebar_position: 2
+sidebar_position: 20
 helpdocs_topic_id: lml71vhsim
 helpdocs_category_id: dr1dwvwa54
 helpdocs_is_private: false
 helpdocs_is_published: true
 ---
 
-This topic describes default (built-in) and custom Harness expressions, as well as the prefixes used to identify user-created variables. This list will be updated when new expressions are added to Harness.
+This topic describes default (built-in) and custom Harness expressions, as well as the prefixes used to identify user-created variables. This list is updated when new expressions are added to Harness.
 
-Looking for how-tos? For more information, go to [Variable Expressions How-tos](/docs/category/variables-and-expressions).
+For more information about variables and expressions go to:
+
+* [Add variables](./add-a-variable.md)
+* [Extracting characters from Harness variable expressions](./extracting-characters-from-harness-variable-expressions.md)
+* [Harness environment variables](./harness-environment-variables.md)
 
 ## Variable expression basics
 
@@ -24,9 +28,9 @@ Harness variables are powerful because they let you template configuration infor
 
 When you use a variable, you add it as an expression.
 
-Harness expressions are identified using the `<+...>` syntax. For example, `<+pipeline.name>` references the name of the pipeline where the expression is evaluated.
+Harness expressions are identified using the `<+...>` syntax. For example, `<+pipeline.name>` references the name of the pipeline where the expression is evaluated.
 
-The content between the `<+...>` delimiters is passed on to the [Java Expression Language (JEXL)](http://commons.apache.org/proper/commons-jexl/) where it is evaluated. Using JEXL, you can build complex variable expressions that use JEXL methods. For example, here is an expression that uses Webhook Trigger payload information:
+The content between the `<+...>` delimiters is passed on to the [Java Expression Language (JEXL)](http://commons.apache.org/proper/commons-jexl/) where it is evaluated. Using JEXL, you can build complex variable expressions that use JEXL methods. For example, here is an expression that uses Webhook Trigger payload information:
 
 ```
 <+trigger.payload.pull_request.diff_url>.contains("triggerNgDemo") || <+trigger.payload.repository.owner.name> == "wings-software"
@@ -41,7 +45,7 @@ The example mentioned in the previous section used `contains()`:
 
 `<+trigger.payload.pull_request.diff_url>.contains("triggerNgDemo")`
 
-Let's look at another example. For a variable called `abc` with value, `def:ghi`. You can use `split()` like this:
+Let's look at another example. For a variable called `abc` with value, `def:ghi`. You can use `split()` like this:
 
 ```
 echo <+<+pipeline.variables.abc>.split(':')[1]>
@@ -208,7 +212,7 @@ Here are the **Name** and **Value** expressions for the `podIP` setting.
 
 You can use Harness variable expressions in most settings.
 
-When you select the **Expression** option for a setting, you can type `<+` and the list of available variable expressions appears.
+When you select the **Expression** option for a setting, you can type `<+` and the list of available variable expressions appears.
 
 ![](./static/harness-variables-19.png)
 
@@ -329,7 +333,7 @@ This also works for nested expressions. For example:
 
 A variable name is the name in the variable expression, such as `foo` in `<+stage.variables.foo>`.
 
-Variable names may only contain `a-z, A-Z, 0-9, _`. They cannot contain hyphens or dots.
+Variable names may only contain `a-z, A-Z, 0-9, _`. They cannot contain hyphens or dots.
 
 Certain platforms and orchestration tools, like Kubernetes, have their own naming restrictions. For example, Kubernetes doesn't allow underscores. Ensure that whatever expressions you use resolve to the allowed values of your target platforms.
 
