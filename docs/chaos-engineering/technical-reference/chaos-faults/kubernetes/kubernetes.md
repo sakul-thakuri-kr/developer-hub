@@ -477,3 +477,18 @@ It can test the application's resilience to lossy (or flaky) network.
 </accordion>
 
 </FaultDetailsCard>
+
+<FaultDetailsCard category="kubernetes" subCategory="pod">
+
+### Time Chaos
+
+Time Chaos is a Kubernetes pod-level fault that introduces controlled time offsets to disrupt the system time of the target pod
+
+- It can test the application's resilience for invalid system time.
+
+<accordion color="green">
+    <summary>Use cases</summary>
+It can test the application's resilience for invalid system time.
+</accordion>
+
+</FaultDetailsCard>
