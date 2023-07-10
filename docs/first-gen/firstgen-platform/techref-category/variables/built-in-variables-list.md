@@ -28,7 +28,9 @@ For information on how Harness uses built-in variable expressions, see [What is 
 
 ### Service
 
-For deployment information, see [Deployments](#deployments).`${service.name}`
+For deployment information, see [Deployments](#deployments).
+
+`${service.name}`
 
 * Harness Service name.
 
